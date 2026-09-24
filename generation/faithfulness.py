@@ -22,9 +22,9 @@ from core.config import settings
 from generation.llm import ExtractiveLLM, get_llm
 from generation.prompts import FAITHFULNESS_PROMPT
 
-_CITE_RE = re.compile(r"\[(\d{1,2})\]")
+_CITE_RE = re.compile(r"(?:\[|\u3010)(\d{1,2})(?:\u2020[^\u3011]+)?(?:\]|\u3011)")
 # Do not split before a trailing citation marker: "... detection. [1]" is one claim.
-_SENT_SPLIT = re.compile(r"(?<=[.!?])\s+(?!\[\d)")
+_SENT_SPLIT = re.compile(r"(?<=[.!?])\s+(?!(?:\[|\u3010)\d)")
 _WORD_RE = re.compile(r"[a-z0-9][a-z0-9\-\.%/,]*")
 _NUM_RE = re.compile(r"\d[\d,\.]*")
 
@@ -143,9 +143,10 @@ def llm_support(claim: str, passage: str) -> bool | None:
 
 def check_answer(answer: str, sources: list, use_llm: bool = False) -> FaithfulnessReport:
     """``sources`` is the ordered list of RetrievedChunk objects given to the LLM."""
-    # Split on line breaks first (bulleted answers), then on sentence bounds.
+    # Normalize thin / non-breaking spaces
     sentences: list[str] = []
-    for line in (answer or "").split("\n"):
+    normalized = (answer or "").replace("\u202f", " ").replace("\u00a0", " ")
+    for line in normalized.split("\n"):
         sentences.extend(s.strip(" -*\t") for s in _SENT_SPLIT.split(line) if s.strip())
     checks: list[SentenceCheck] = []
     invalid: list[int] = []
@@ -157,7 +158,11 @@ def check_answer(answer: str, sources: list, use_llm: bool = False) -> Faithfuln
         if len(_content_words(bare)) < 3:
             continue  # boilerplate / disclaimer / heading
         if not cites:
-            if bare.lower().startswith(("this is informational", "the indexed circulars do not")):
+            if (
+                bare.lower().startswith(("this is informational", "the indexed circulars do not"))
+                or bare.endswith(":")
+                or (bare.startswith("**") and bare.endswith("**"))
+            ):
                 continue
             uncited += 1
             checks.append(SentenceCheck(sentence, [], False, 0.0, "uncited"))

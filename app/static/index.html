@@ -21,6 +21,26 @@
     <button class="btn primary block" id="new-chat">+ New chat</button>
 
     <section class="panel">
+      <h2>LLM Generation</h2>
+      <label class="field">
+        <span>Provider</span>
+        <select id="llm-provider">
+          <option value="groq" selected>Groq (Fast / High limits)</option>
+          <option value="gemini">Gemini (Google AI)</option>
+          <option value="extractive">Extractive (Key-free fallback)</option>
+        </select>
+      </label>
+      <label class="field" id="model-field">
+        <span>Model</span>
+        <select id="llm-model">
+          <option value="openai/gpt-oss-120b" selected>openai/gpt-oss-120b</option>
+          <option value="qwen/qwen3.8-27b">qwen/qwen3.8-27b</option>
+          <option value="openai/gpt-oss-20b">openai/gpt-oss-20b</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="panel">
       <h2>Retrieval</h2>
       <label class="field">
         <span>Mode</span>
@@ -93,7 +113,7 @@
   <div class="modal">
     <div class="modal-head">
       <h3>Add a new circular</h3>
-      <button class="btn ghost tiny" id="close-upload">✕</button>
+      <button type="button" class="btn ghost tiny" id="close-upload" aria-label="Close">✕</button>
     </div>
     <div class="tabs">
       <button class="tab active" data-tab="file">Upload file</button>

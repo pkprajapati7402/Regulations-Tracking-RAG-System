@@ -14,8 +14,8 @@ const state = { sessionId: null, busy: false, lastCitations: [] };
 
 /* ------------------------------ rendering ------------------------------ */
 function renderAnswer(text) {
-  // escape, then linkify [n] citations and render "- " bullets
-  let html = esc(text).replace(/\[(\d{1,2})\]/g, '<span class="cite-ref" data-n="$1">$1</span>');
+  // escape, then linkify [n], 【n】 or 【n†...】 citations and render "- " bullets
+  let html = esc(text).replace(/(?:\[|\u3010)(\d{1,2})(?:\u2020[^\u3011]+)?(?:\]|\u3011)/g, '<span class="cite-ref" data-n="$1">$1</span>');
   const lines = html.split("\n");
   let out = "", inList = false;
   for (const line of lines) {
@@ -94,7 +94,8 @@ async function send(text) {
   addMessage("user", esc(text));
   const pending = addMessage("assistant", '<span class="typing"><i></i><i></i><i></i></span>');
 
-  try {
+    const provider = $("#llm-provider") ? $("#llm-provider").value : undefined;
+    const model = $("#llm-model") && $("#model-field")?.style.display !== "none" ? $("#llm-model").value : undefined;
     const data = await api("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -104,6 +105,8 @@ async function send(text) {
         mode: $("#mode").value,
         top_k: Number($("#topk").value),
         include_deprecated: $("#include-deprecated").checked,
+        provider: provider,
+        model: model,
       }),
     });
     state.sessionId = data.session_id;
@@ -121,11 +124,46 @@ async function send(text) {
 }
 
 /* ------------------------------ sidebar ------------------------------- */
+const providerModels = {
+  groq: [
+    { id: "openai/gpt-oss-120b", name: "openai/gpt-oss-120b (Deep Reasoning)" },
+    { id: "qwen/qwen3.8-27b", name: "qwen/qwen3.8-27b (Fast & Accurate)" },
+    { id: "openai/gpt-oss-20b", name: "openai/gpt-oss-20b (Lightweight)" },
+  ],
+  gemini: [
+    { id: "gemini-3.6-flash", name: "gemini-3.6-flash (Complex tasks)" },
+  ],
+  extractive: []
+};
+
+function updateModels(prov) {
+  const modelField = $("#model-field");
+  const modelSelect = $("#llm-model");
+  if (!modelSelect || !modelField) return;
+  const list = providerModels[prov] || [];
+  if (!list.length) {
+    modelField.style.display = "none";
+    return;
+  }
+  modelField.style.display = "";
+  modelSelect.innerHTML = list.map(m => `<option value="${m.id}">${m.name}</option>`).join("");
+}
+
 async function loadHealth() {
   try {
     const h = await api("/api/health");
     $("#health").textContent = `${h.llm.split(":")[0]} · ${h.embedding.split(":")[0]} · ${h.reranker}`;
     $("#health").title = `embedding=${h.embedding}\nreranker=${h.reranker}\nllm=${h.llm}\nchunker=${h.chunker}`;
+    if (h.llm && $("#llm-provider")) {
+      const parts = h.llm.split(":");
+      const prov = parts[0];
+      const mod = parts.slice(1).join(":");
+      if (["groq", "gemini", "extractive"].includes(prov)) {
+        $("#llm-provider").value = prov;
+        updateModels(prov);
+        if (mod && $("#llm-model")) $("#llm-model").value = mod;
+      }
+    }
   } catch { $("#health").textContent = "offline"; }
 }
 
@@ -158,13 +196,30 @@ async function loadDocs() {
 
 /* ------------------------------- upload ------------------------------- */
 function openUpload(open) {
-  $("#upload-modal").hidden = !open;
-  if (open) $("#upload-status").hidden = true;
+  const modal = $("#upload-modal");
+  if (!modal) return;
+  modal.hidden = !open;
+  const status = $("#upload-status");
+  if (!open) {
+    $("#upload-form").reset();
+    if (status) {
+      status.hidden = true;
+      status.textContent = "";
+      status.className = "status";
+    }
+    $("#do-upload").disabled = false;
+  } else {
+    if (status) {
+      status.hidden = true;
+      status.textContent = "";
+      status.className = "status";
+    }
+  }
 }
 
 async function submitUpload(ev) {
   ev.preventDefault();
-  const activeTab = $(".tab.active").dataset.tab;
+  const activeTab = $(".tab.active")?.dataset?.tab || "file";
   const status = $("#upload-status");
   status.hidden = false;
   status.className = "status";
@@ -185,11 +240,13 @@ async function submitUpload(ev) {
       if ($("#up-url").value) fd.append("source_url", $("#up-url").value);
       data = await api("/api/documents/upload", { method: "POST", body: fd });
     } else {
+      const text = ($("#paste-text").value || "").trim();
+      if (!text) throw new Error("Please paste the circular text first");
       data = await api("/api/documents/text", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          text: $("#paste-text").value,
+          text,
           title: $("#up-title").value || null,
           category: $("#up-category").value,
           chunker: $("#up-chunker").value || null,
@@ -201,10 +258,14 @@ async function submitUpload(ev) {
     const d = data.document;
     status.className = `status ${data.status === "indexed" ? "ok" : ""}`;
     status.textContent =
-      `${data.status.toUpperCase()}: ${d.doc_number} (v${d.version_number}) — ${data.detail}. ` +
+      `✓ ${data.status.toUpperCase()}: ${d.doc_number} (v${d.version_number}) — ${data.detail}. ` +
       `Index now holds ${data.index.chunks_active} active chunks across ${data.index.documents} documents.`;
     await loadDocs();
-    $("#upload-form").reset();
+    await loadHealth();
+    // Auto-close modal after brief delay so user can see confirmation
+    setTimeout(() => {
+      openUpload(false);
+    }, 1500);
   } catch (err) {
     status.className = "status err";
     status.textContent = `Failed: ${err.message}`;
@@ -252,6 +313,9 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#close-upload").addEventListener("click", () => openUpload(false));
   $("#cancel-upload").addEventListener("click", () => openUpload(false));
   $("#upload-modal").addEventListener("click", (e) => { if (e.target.id === "upload-modal") openUpload(false); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !$("#upload-modal").hidden) openUpload(false);
+  });
   $("#upload-form").addEventListener("submit", submitUpload);
   document.querySelectorAll(".tab").forEach((tab) =>
     tab.addEventListener("click", () => {
@@ -260,6 +324,8 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".tab-pane").forEach((p) => (p.hidden = p.dataset.pane !== tab.dataset.tab));
     })
   );
+
+  $("#llm-provider")?.addEventListener("change", (e) => updateModels(e.target.value));
 
   loadHealth();
   loadDocs();

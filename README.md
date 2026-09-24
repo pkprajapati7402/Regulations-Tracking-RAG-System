@@ -13,7 +13,7 @@ This is not a "chat with your PDF" demo. The domain was chosen because it has ge
 ## Table of contents
 
 - [What it does](#what-it-does)
-- [Quickstart](#quickstart)
+- [Quickstart & How to Run](#quickstart--how-to-run)
 - [Getting the real RBI corpus](#getting-the-real-rbi-corpus)
 - [Architecture](#architecture)
 - [Project structure](#project-structure)
@@ -45,49 +45,123 @@ This is not a "chat with your PDF" demo. The domain was chosen because it has ge
 
 ---
 
-## Quickstart
+## Quickstart & How to Run
 
-Requires Python 3.11+. Nothing else — no GPU, no API key, no database server.
+Requires Python 3.11+. The system runs out of the box on CPU with **zero required external services** (uses local SQLite by default; MongoDB is not needed).
 
-```bash
-git clone <this repo> && cd Regulations-Tracking-RAG-System
-
-make install          # venv + dependencies + .env
-make seed             # index the seed corpus (8 RBI-format circulars)
-make serve            # http://localhost:8000
-```
-
-Or without `make`:
+### Step 1: Install Dependencies
 
 ```bash
+# Clone the repository
+git clone <this repo>
+cd Regulations-Tracking-RAG-System
+
+# (Optional) Create & activate a virtual environment
+# Windows:
+python -m venv .venv
+.venv\Scripts\activate
+# Linux / macOS:
 python -m venv .venv && source .venv/bin/activate
+
+# Install core dependencies
 pip install -r requirements.txt
-cp .env.example .env
-python -m ingestion.reindex --reset --seed
-uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
-Open <http://localhost:8000> and ask *"How often must banks carry out periodic KYC updation for high risk customers?"*
+### Step 2: Configure Environment (`.env`)
+
+Create or update your `.env` file (copy from `.env.example` if starting fresh):
+
+```bash
+# Windows:
+copy .env.example .env
+# Linux / macOS:
+cp .env.example .env
+```
+
+Configure your LLM provider and API keys in `.env`:
+
+```ini
+# ---- generation ----
+# Choose provider: groq | gemini | extractive (no API key needed)
+LLM_PROVIDER=groq
+GROQ_API_KEY=your_groq_api_key_here
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# Supported free models on Groq:
+# - openai/gpt-oss-120b   (deep reasoning & high quality)
+# - qwen/qwen3.8-27b      (blazing fast ~1s latency, 100% citation faithfulness)
+# - openai/gpt-oss-20b    (fast & lightweight)
+LLM_MODEL=openai/gpt-oss-120b
+```
+
+> [!TIP]
+> - **Groq**: Generous free-tier limits. `openai/gpt-oss-120b` and `qwen/qwen3.8-27b` work out of the box.
+> - **Gemini**: Supported using `LLM_PROVIDER=gemini` (defaults to `gemini-3.6-flash`).
+> - **No API Key?** Set `LLM_PROVIDER=extractive` to run 100% locally with zero external API calls.
+
+### Step 3: Index the Regulatory Corpus
+
+Seed the database (SQLite) with the initial 8 RBI Master Circulars and amendment fixtures:
+
+```bash
+python -m ingestion.reindex --reset --seed
+```
+
+Check the index status at any time with:
+```bash
+python -m ingestion.reindex --status
+```
+
+### Step 4: Start the Web Application
+
+Launch the FastAPI/Uvicorn server:
+
+```bash
+python -m uvicorn app.main:app --reload --port 8000
+```
+
+Open your browser and navigate to:
+👉 **[http://localhost:8000](http://localhost:8000)** (or `http://127.0.0.1:8000`)
+
+- **Interactive LLM Switching**: In the sidebar under **LLM Generation**, switch between **Groq**, **Gemini**, or **Extractive**, and choose your preferred model directly in the browser.
+- **Citation Inspection**: Click any suggested question (or type your own), review the cited claims, faithfulness badge, and expand **📎 cited sources** to see the exact regulatory paragraphs referenced.
+- **Swagger API Docs**: View the interactive OpenAPI documentation at **[http://localhost:8000/docs](http://localhost:8000/docs)**.
+
+---
+
+### Alternative: Run with Docker
+
+If you prefer running via Docker Compose:
+
+```bash
+# Build and run the app container (includes auto-seeded SQLite database)
+docker compose up --build
+
+# Optional: run with PostgreSQL + pgvector
+docker compose --profile postgres up
+```
+
+---
+
+### Useful Commands & Verification
+
+| Action | Command |
+|---|---|
+| **Run All 43 Tests** | `python -m pytest` |
+| **Run Retrieval Evaluation** | `python -m evaluation.run_eval --experiment retrieval` |
+| **Run Chunking Evaluation** | `python -m evaluation.run_eval --experiment chunking --k 5` |
+| **Run Amendment Case Study** | `python scripts/case_study_amendment.py` |
+| **Re-embed Chunks** | `python -m ingestion.reindex --reembed` |
+| **Scrape Genuine RBI Docs** | `python -m ingestion.fetch_rbi --category master-circulars --limit 40 --out corpus/raw` |
 
 **Defaults are deliberately dependency-free** so the system runs anywhere:
 
 | Component | Default (zero-setup) | Production option |
 |---|---|---|
 | Store | SQLite | Postgres + pgvector (`DATABASE_URL=postgresql+psycopg://…`) |
-| Embeddings | deterministic hashing embedder (CPU, no download) | `sentence-transformers` `BAAI/bge-small-en-v1.5` (`make install-ml`) |
+| Embeddings | deterministic hashing embedder (CPU, no download) | `sentence-transformers` `BAAI/bge-small-en-v1.5` (`pip install -r requirements-ml.txt`) |
 | Reranker | lexical IDF/phrase reranker | `BAAI/bge-reranker-base` cross-encoder |
-| Generation | extractive (composes the answer out of the retrieved passages, always cited) | Groq Llama 3.3 / Gemini Flash / OpenAI |
-
-Switch any of them by editing `.env` — nothing else in the code changes:
-
-```bash
-EMBEDDING_PROVIDER=sentence-transformers
-RERANKER_PROVIDER=cross-encoder
-LLM_PROVIDER=groq
-GROQ_API_KEY=gsk_...
-```
-
-After switching the embedder, re-embed: `python -m ingestion.reindex --reembed`.
+| Generation | Groq (`openai/gpt-oss-120b`, `qwen/qwen3.8-27b`) or Extractive | Gemini (`gemini-3.6-flash`) / OpenAI |
 
 ---
 
@@ -316,7 +390,7 @@ The image is CPU-only and small (no torch unless you add `requirements-ml.txt`).
 ## Testing
 
 ```bash
-make test      # 43 tests, ~2 s
+python -m pytest      # or `make test` (43 tests, ~2 s)
 ```
 
 Covering: the three chunkers (including table atomicity and section paths), parsing/date/doc-number/supersession extraction, IR metrics against hand-computed values, all four retrieval modes, deprecation semantics (scoped and full), idempotent re-ingestion, version bumping, refusal on out-of-domain questions, faithfulness detection of unsupported claims and invalid citations, and every API endpoint including upload → immediately answerable. The GitHub Actions workflow in `ci/github-actions-ci.yml` runs the tests, builds the index, runs the evaluation and reproduces the case study on every push — move it to `.github/workflows/ci.yml` to activate it (see `ci/README.md`).

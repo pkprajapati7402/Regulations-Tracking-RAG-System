@@ -135,7 +135,13 @@ def chat(req: ChatRequest, session: Session = Depends(get_session)) -> ChatRespo
         include_deprecated=req.include_deprecated,
         session=session,
     )
-    result = generate_answer(req.message, chunks, use_llm_judge=req.use_llm_judge)
+    result = generate_answer(
+        req.message,
+        chunks,
+        provider=req.provider,
+        model=req.model,
+        use_llm_judge=req.use_llm_judge,
+    )
 
     chat_session = None
     if req.session_id:

@@ -15,6 +15,8 @@ class ChatRequest(BaseModel):
     top_k: Optional[int] = Field(default=None, ge=1, le=25)
     include_deprecated: bool = False
     use_llm_judge: bool = False
+    provider: Optional[str] = None
+    model: Optional[str] = None
 
 
 class ChatResponse(BaseModel):

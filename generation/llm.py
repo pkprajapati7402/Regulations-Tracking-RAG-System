@@ -91,8 +91,9 @@ class GroqLLM(BaseLLM):
         r.raise_for_status()
         data = r.json()
         usage = data.get("usage", {})
+        content = data["choices"][0]["message"].get("content") or ""
         return LLMResponse(
-            text=data["choices"][0]["message"]["content"],
+            text=content,
             provider=self.provider,
             model=self.model,
             prompt_tokens=usage.get("prompt_tokens", 0),
@@ -110,7 +111,7 @@ class GeminiLLM(BaseLLM):
 
     def __init__(self, api_key: str, model: str):
         self.api_key = api_key
-        self.model = model or "gemini-1.5-flash"
+        self.model = model or "gemini-3.6-flash"
 
     @property
     def available(self) -> bool:
@@ -143,17 +144,17 @@ class GeminiLLM(BaseLLM):
         )
 
 
-@lru_cache(maxsize=4)
-def get_llm(provider: str | None = None) -> BaseLLM:
+@lru_cache(maxsize=16)
+def get_llm(provider: str | None = None, model: str | None = None) -> BaseLLM:
     provider = (provider or settings.llm_provider).lower()
-    model = settings.llm_model
+    model = model or settings.llm_model
     client: BaseLLM
     if provider == "groq":
         client = GroqLLM(settings.groq_api_key, model)
     elif provider == "openai":
         client = OpenAILLM(settings.openai_api_key, model if "gpt" in model else "gpt-4o-mini")
     elif provider == "gemini":
-        client = GeminiLLM(settings.gemini_api_key, model if "gemini" in model else "gemini-1.5-flash")
+        client = GeminiLLM(settings.gemini_api_key, model if "gemini" in model else "gemini-3.6-flash")
     else:
         return ExtractiveLLM()
 

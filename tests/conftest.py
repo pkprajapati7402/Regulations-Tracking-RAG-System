@@ -19,12 +19,17 @@ def _env(tmp_path_factory):
     os.environ["LLM_PROVIDER"] = "extractive"
 
     from core.config import get_settings
+    from generation.llm import get_llm
 
-    get_settings.cache_clear()
     import core.config as config_mod
+    import generation.answer as ans_mod
+    import generation.llm as llm_mod
 
-    config_mod.settings = get_settings()
+    config_mod.settings.llm_provider = "extractive"
     config_mod.settings.database_url = f"sqlite:///{db_path}"
+    ans_mod.settings.llm_provider = "extractive"
+    llm_mod.settings.llm_provider = "extractive"
+    get_llm.cache_clear()
     yield
 
 

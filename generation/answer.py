@@ -139,6 +139,8 @@ def generate_answer(
     question: str,
     chunks: list[RetrievedChunk],
     *,
+    provider: str | None = None,
+    model: str | None = None,
     use_llm_judge: bool = False,
 ) -> GeneratedAnswer:
     started = time.perf_counter()
@@ -173,7 +175,7 @@ def generate_answer(
             ],
         )
 
-    llm = get_llm()
+    llm = get_llm(provider=provider, model=model)
     if isinstance(llm, ExtractiveLLM):
         text = extractive_answer(question, chunks)
         resp = LLMResponse(text=text, provider="extractive", model="extractive-v1")
