@@ -1,0 +1,77 @@
+RBI/DBR/2015-16/18
+Master Direction DBR.AML.BC.No.81/14.01.001/2015-16
+
+Master Direction - Know Your Customer (KYC) Direction, 2016
+
+25 February 2016
+(Updated as on 10 May 2021)
+
+To
+All Regulated Entities (REs)
+
+Madam/Dear Sir,
+
+In terms of the provisions of the Prevention of Money-Laundering Act, 2002 and the Prevention of Money-Laundering (Maintenance of Records) Rules, 2005, Regulated Entities are required to follow certain customer identification procedures while undertaking a transaction either by establishing an account based relationship or otherwise and monitor their transactions. This Master Direction consolidates the instructions on the subject.
+
+CHAPTER I - PRELIMINARY
+
+1. Short title and commencement
+1.1 These Directions shall be called the Reserve Bank of India (Know Your Customer) Directions, 2016.
+1.2 These Directions shall come into force with effect from the date of their publication on the official website of the Reserve Bank of India.
+
+2. Applicability
+2.1 The provisions of these Directions shall apply to every entity regulated by the Reserve Bank of India, namely Scheduled Commercial Banks, Regional Rural Banks, Local Area Banks, Small Finance Banks, Payments Banks, Primary (Urban) Co-operative Banks, State and Central Co-operative Banks, All India Financial Institutions, Non-Banking Financial Companies, Miscellaneous Non-Banking Companies, Residuary Non-Banking Companies, Authorised Persons dealing in foreign exchange, and Payment System Providers.
+
+3. Definitions
+3.1 "Customer Due Diligence (CDD)" means identifying and verifying the customer and the beneficial owner using reliable and independent sources of identification.
+3.2 "Officially Valid Document (OVD)" means the passport, the driving licence, proof of possession of Aadhaar number, the Voter's Identity Card issued by the Election Commission of India, job card issued by NREGA duly signed by an officer of the State Government, and the letter issued by the National Population Register containing details of name and address.
+3.3 "Politically Exposed Persons (PEPs)" are individuals who are or have been entrusted with prominent public functions by a foreign country, including Heads of State or Government, senior politicians, senior government or judicial or military officers, senior executives of state-owned corporations and important political party officials.
+3.4 "Small Account" means a savings account in which the aggregate of all credits in a financial year does not exceed rupees one lakh, the aggregate of all withdrawals and transfers in a month does not exceed rupees ten thousand, and the balance at any point of time does not exceed rupees fifty thousand.
+
+CHAPTER II - CUSTOMER ACCEPTANCE AND DUE DILIGENCE
+
+4. Customer Acceptance Policy
+4.1 Regulated Entities shall ensure that no account is opened in anonymous or fictitious/benami name, and that no account is opened where the RE is unable to apply appropriate CDD measures either due to non-cooperation of the customer or non-reliability of the documents or information furnished.
+4.2 Regulated Entities shall not open an account or close an existing account where the RE is unable to verify the identity and/or obtain documents required as per the risk categorisation due to non-cooperation of the customer.
+
+5. Customer Identification Procedure
+5.1 Regulated Entities shall undertake identification of customers at the time of commencement of an account-based relationship, when carrying out a carry-forward transaction for a walk-in customer for an amount equal to or exceeding rupees fifty thousand, whether conducted as a single transaction or several transactions that appear to be connected, and when there is a doubt about the authenticity or adequacy of previously obtained customer identification data.
+5.2 For customers that are legal persons, the RE shall verify the legal status of the legal person through proper and relevant documents and verify that any person purporting to act on behalf of the legal person is so authorised.
+
+6. Periodic Updation of KYC
+6.1 Regulated Entities shall carry out periodic updation of KYC at least once in every two years for high risk customers, once in every eight years for medium risk customers and once in every ten years for low risk customers from the date of opening of the account or the last KYC updation.
+6.2 No change in KYC information: In case of no change in the KYC information, a self-declaration from the customer to that effect shall be obtained through the customer's email-id registered with the RE, customer's mobile number registered with the RE, ATMs, digital channels such as online banking or internet banking, letter, or any other digital channel.
+6.3 Change in address: In case of a change only in the address details of the customer, a self-declaration of the new address shall be obtained from the customer and the declared address shall be verified through positive confirmation within two months by means such as address verification letter, contact point verification, or deliverables.
+6.4 Accounts shall not be closed and no restriction on operation of the account shall be imposed solely because the periodic updation of KYC is pending, unless there is sufficient reason to believe that continuation of the relationship poses a risk.
+
+7. Risk Categorisation
+7.1 Regulated Entities shall undertake risk categorisation of customers as low, medium or high risk based on parameters such as customer's identity, social/financial status, nature of business activity, and information about the clients' business and their location.
+7.2 The risk categorisation of a customer and the specific reasons for such categorisation shall be kept confidential and shall not be revealed to the customer to avoid tipping off.
+
+8. Enhanced and Simplified Due Diligence
+8.1 Enhanced due diligence measures shall be applied to accounts of Politically Exposed Persons, non-face-to-face customers, and any customer categorised as high risk.
+8.2 In the case of accounts of PEPs, the decision to open an account shall be taken at the senior management level and the source of funds shall be identified.
+
+CHAPTER III - RECORD MANAGEMENT AND REPORTING
+
+9. Record Management
+9.1 Regulated Entities shall maintain all necessary records of transactions between the RE and the customer, both domestic and international, for at least five years from the date of transaction.
+9.2 Records pertaining to the identification of customers and their addresses obtained while opening the account and during the course of business relationship shall be preserved for at least five years after the business relationship has ended or the account has been closed, whichever is later.
+
+10. Reporting Requirements to Financial Intelligence Unit - India
+
+[TABLE]
+Report | Description | Timeline
+CTR | All cash transactions of the value of more than rupees ten lakh or its equivalent in foreign currency | By the 15th day of the succeeding month
+STR | All suspicious transactions, whether or not made in cash | Within seven working days of establishment of suspicion
+CCR | All cash transactions where forged or counterfeit currency notes have been used as genuine | By the 15th day of the succeeding month
+NTR | All cross-border wire transfers of more than rupees five lakh or its equivalent in foreign currency | By the 15th day of the succeeding month
+[/TABLE]
+
+11. Money Laundering and Terrorist Financing Risk Assessment
+11.1 Regulated Entities shall carry out a Money Laundering and Terrorist Financing Risk Assessment exercise periodically to identify, assess and take effective measures to mitigate their money laundering and terrorist financing risk.
+11.2 The risk assessment shall be reviewed by the Board or a Committee of the Board and shall be carried out at least annually.
+
+Yours faithfully,
+Chief General Manager-in-Charge
+Department of Banking Regulation

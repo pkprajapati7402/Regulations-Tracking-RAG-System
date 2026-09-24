@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RBI Circular Assistant — Regulation-Tracking RAG</title>
+<link rel="stylesheet" href="/static/styles.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>📘</text></svg>" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">RBI</div>
+      <div>
+        <h1>Circular Assistant</h1>
+        <p class="muted">Regulation-Tracking RAG</p>
+      </div>
+    </div>
+
+    <button class="btn primary block" id="new-chat">+ New chat</button>
+
+    <section class="panel">
+      <h2>Retrieval</h2>
+      <label class="field">
+        <span>Mode</span>
+        <select id="mode">
+          <option value="hybrid_rerank">Hybrid + rerank</option>
+          <option value="hybrid">Hybrid (RRF)</option>
+          <option value="dense">Dense only</option>
+          <option value="bm25">BM25 only</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Top-k passages <b id="topk-val">8</b></span>
+        <input type="range" id="topk" min="3" max="15" value="8" />
+      </label>
+      <label class="check">
+        <input type="checkbox" id="include-deprecated" />
+        <span>Include superseded text <i class="muted">(audit mode)</i></span>
+      </label>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Corpus</h2>
+        <button class="btn ghost tiny" id="refresh-docs" title="Refresh">⟳</button>
+      </div>
+      <div id="index-stats" class="stats"></div>
+      <div id="doc-list" class="doc-list"></div>
+      <button class="btn block" id="open-upload">＋ Add new circular</button>
+    </section>
+
+    <footer class="sidebar-foot">
+      <span id="health" class="muted">connecting…</span>
+      <a href="/docs" target="_blank" rel="noopener">API</a>
+    </footer>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h2 id="chat-title">Chat with the circulars</h2>
+        <p class="muted small">Answers are grounded in the indexed RBI documents and always cite their source.</p>
+      </div>
+      <div class="pill" id="mode-pill">hybrid + rerank</div>
+    </header>
+
+    <div id="messages" class="messages">
+      <div class="welcome">
+        <h3>Ask a compliance question</h3>
+        <p class="muted">Every answer is built only from the indexed circulars, with a citation on each claim and a faithfulness score you can inspect. Superseded text is excluded by default.</p>
+        <div class="suggestions">
+          <button class="chip">What is the periodic KYC updation frequency for high risk customers?</button>
+          <button class="chip">Can a bank freeze my account only because KYC updation is pending?</button>
+          <button class="chip">What is the penalty if a credit card closure request is not honoured in seven working days?</button>
+          <button class="chip">How soon must a bank report a cyber security incident to the RBI?</button>
+          <button class="chip">What is the SMA-2 classification threshold?</button>
+          <button class="chip">What is the minimum cooling-off period for a digital loan?</button>
+        </div>
+      </div>
+    </div>
+
+    <form class="composer" id="composer">
+      <textarea id="input" rows="1" placeholder="Ask about KYC, digital lending, card rules, PSL targets…  (Enter to send, Shift+Enter for a new line)"></textarea>
+      <button class="btn primary" id="send" type="submit">Send</button>
+    </form>
+  </main>
+</div>
+
+<!-- upload modal -->
+<div class="modal-backdrop" id="upload-modal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Add a new circular</h3>
+      <button class="btn ghost tiny" id="close-upload">✕</button>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-tab="file">Upload file</button>
+      <button class="tab" data-tab="text">Paste text</button>
+    </div>
+
+    <form id="upload-form" class="modal-body">
+      <div class="tab-pane" data-pane="file">
+        <label class="field">
+          <span>Document (PDF, TXT, MD, HTML)</span>
+          <input type="file" id="file" accept=".pdf,.txt,.md,.html,.htm" />
+        </label>
+      </div>
+      <div class="tab-pane" data-pane="text" hidden>
+        <label class="field">
+          <span>Circular text</span>
+          <textarea id="paste-text" rows="8" placeholder="Paste the full circular text here…"></textarea>
+        </label>
+      </div>
+
+      <label class="field">
+        <span>Title <i class="muted">(optional — auto-detected)</i></span>
+        <input type="text" id="up-title" placeholder="e.g. Master Direction – KYC Amendment, 2026" />
+      </label>
+      <div class="row">
+        <label class="field">
+          <span>Category</span>
+          <select id="up-category">
+            <option>Master Circular</option>
+            <option>Master Direction</option>
+            <option>Notification</option>
+            <option>Amendment</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Chunker</span>
+          <select id="up-chunker">
+            <option value="">Default (structure-aware)</option>
+            <option value="structure_aware">structure_aware</option>
+            <option value="recursive">recursive</option>
+            <option value="fixed">fixed</option>
+          </select>
+        </label>
+      </div>
+      <label class="field">
+        <span>Supersedes <i class="muted">(doc number, optional — auto-detected from "in supersession of …")</i></span>
+        <input type="text" id="up-supersedes" placeholder="e.g. RBI/DBR/2015-16/18" />
+      </label>
+      <label class="field">
+        <span>Source URL <i class="muted">(optional)</i></span>
+        <input type="url" id="up-url" placeholder="https://www.rbi.org.in/Scripts/..." />
+      </label>
+
+      <div id="upload-status" class="status" hidden></div>
+      <div class="modal-foot">
+        <button type="button" class="btn ghost" id="cancel-upload">Cancel</button>
+        <button type="submit" class="btn primary" id="do-upload">Index document</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

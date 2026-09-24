@@ -1,0 +1,75 @@
+Indexed base document RBI/DBR/2015-16/18 -> 7 chunks
+
+====================================================================================================
+STEP 1 — BEFORE the amendment (only the 2016 Master Direction is indexed)
+====================================================================================================
+index: {'documents': 1, 'chunks_total': 7, 'chunks_active': 7, 'chunks_deprecated': 0, 'tables_indexed': 1}  |  mode=hybrid_rerank  include_deprecated=False
+
+Top passages:
+  [1] ACTIVE     RBI/DBR/2015-16/18           [Section: 6. Periodic Updation of KYC] 6. Periodic Updation of KYC 6.1 Regulated Entities shall carry out periodic updation of KYC at least once in ev…
+  [2] ACTIVE     RBI/DBR/2015-16/18           [Section: 5. Customer Identification Procedure] 5. Customer Identification Procedure 5.1 Regulated Entities shall undertake identification of customer…
+  [3] ACTIVE     RBI/DBR/2015-16/18           [Section: 8. Enhanced and Simplified Due Diligence > 8.1 Enhanced due diligence measures shall be applied to accounts of Politically Exposed Persons, …
+  [4] ACTIVE     RBI/DBR/2015-16/18           [Section: 11. Money Laundering and Terrorist Financing Risk Assessment] 11. Money Laundering and Terrorist Financing Risk Assessment 11.1 Regulated En…
+
+Answer:
+Based on RBI/DBR/2015-16/18 — Master Direction - Know Your Customer (KYC) Direction, 2016, the indexed circulars state: [1]
+
+- Periodic Updation of KYC 6.1 Regulated Entities shall carry out periodic updation of KYC at least once in every two years for high risk customers, once in every eight years for medium risk customers and once in every ten years for low risk customers from the date of opening of the account or the last KYC updation. [1]
+- Money Laundering and Terrorist Financing Risk Assessment 11.1 Regulated Entities shall carry out a Money Laundering and Terrorist Financing Risk Assessment exercise periodically to identify, assess and take effective measures to mitigate their money laundering and terrorist financing risk. [4]
+- 6.4 Accounts shall not be closed and no restriction on operation of the account shall be imposed solely because the periodic updation of KYC is pending, unless there is sufficient reason to believe that continuation of the relationship poses a risk. [1]
+- Risk Categorisation 7.1 Regulated Entities shall undertake risk categorisation of customers as low, medium or high risk based on parameters such as customer's identity, social/financial status, nature of business activity, and information about the clients' business and their location. [1]
+- 11.2 The risk assessment shall be reviewed by the Board or a Committee of the Board and shall be carried out at least annually. [4]
+
+This is informational only, not legal or financial advice.
+
+faithfulness=0.83  notices=[]
+
+Ingested amendment RBI/2026-27/88: +5 chunks, 1 chunks deprecated, supersedes=8be41e7c-22f5-4f86-a10c-09aa8cb6724a
+
+====================================================================================================
+STEP 2 — AFTER the amendment (default retrieval: superseded text excluded)
+====================================================================================================
+index: {'documents': 2, 'chunks_total': 13, 'chunks_active': 12, 'chunks_deprecated': 1, 'tables_indexed': 2}  |  mode=hybrid_rerank  include_deprecated=False
+
+Top passages:
+  [1] ACTIVE     RBI/2026-27/88               [Section: 1. Amendment to periodic updation of KYC] 1. Amendment to periodic updation of KYC 1.1 Regulated Entities shall carry out periodic updation …
+  [2] ACTIVE     RBI/DBR/2015-16/18           [Section: 6. Periodic Updation of KYC] 7. Risk Categorisation 7.1 Regulated Entities shall undertake risk categorisation of customers as low, medium o…
+  [3] ACTIVE     RBI/2026-27/88               [Section: RBI/2026-27/88] RBI/2026-27/88 DOR.AML.REC.42/14.01.001/2026-27 Reserve Bank of India (Commercial Banks - Know Your Customer) Amendment Dire…
+  [4] ACTIVE     RBI/DBR/2015-16/18           [Section: 5. Customer Identification Procedure] 5. Customer Identification Procedure 5.1 Regulated Entities shall undertake identification of customer…
+
+Answer:
+Based on RBI/2026-27/88 — Reserve Bank of India (Commercial Banks - Know Your Customer) Amendment Directions, 2026, the indexed circulars state: [1]
+
+- Amendment to periodic updation of KYC 1.1 Regulated Entities shall carry out periodic updation of KYC at least once in every three years for high risk customers, once in every ten years for medium risk customers and once in every twelve years for low risk customers, from the date of opening of the account or the date of the last KYC updation, whichever is later. [1]
+- In supersession of paragraph 6 of Master Direction DBR.AML.BC.No.81/14.01.001/2015-16 relating to periodic updation of KYC, and with a view to easing the compliance burden on customers while preserving the integrity of the customer due diligence framework, the following amendments are issued. [3]
+- 1.3 Banks shall provide an advance intimation to the customer at least three months before the periodic updation falls due, followed by at least three reminders, of which at least one shall be by letter. [1]
+- Risk Categorisation 7.1 Regulated Entities shall undertake risk categorisation of customers as low, medium or high risk based on parameters such as customer's identity, social/financial status, nature of business activity, and information about the clients' business and their location. [2]
+- Restriction on account operation 2.1 No bank shall impose any restriction on the operation of an account, including debit freeze, solely on the ground that the periodic updation of KYC is pending, until the expiry of twelve months from the due date of periodic updation or until 30 June 2027, whichever is later. [1]
+
+This is informational only, not legal or financial advice.
+
+faithfulness=0.83  notices=['Sources span multiple publication dates (2016-02-25 to 2026-09-18); the later document prevails where they differ.']
+
+====================================================================================================
+STEP 3 — AUDIT MODE (superseded text deliberately included)
+====================================================================================================
+index: {'documents': 2, 'chunks_total': 13, 'chunks_active': 12, 'chunks_deprecated': 1, 'tables_indexed': 2}  |  mode=hybrid_rerank  include_deprecated=True
+
+Top passages:
+  [1] SUPERSEDED RBI/DBR/2015-16/18           6. Periodic Updation of KYC 6.1 Regulated Entities shall carry out periodic updation of KYC at least once in every two years for high risk customers, …
+  [2] ACTIVE     RBI/2026-27/88               [Section: 1. Amendment to periodic updation of KYC] 1. Amendment to periodic updation of KYC 1.1 Regulated Entities shall carry out periodic updation …
+  [3] ACTIVE     RBI/DBR/2015-16/18           [Section: 6. Periodic Updation of KYC] 7. Risk Categorisation 7.1 Regulated Entities shall undertake risk categorisation of customers as low, medium o…
+  [4] ACTIVE     RBI/2026-27/88               [Section: RBI/2026-27/88] RBI/2026-27/88 DOR.AML.REC.42/14.01.001/2026-27 Reserve Bank of India (Commercial Banks - Know Your Customer) Amendment Dire…
+
+Answer:
+Based on RBI/DBR/2015-16/18 — Master Direction - Know Your Customer (KYC) Direction, 2016, the indexed circulars state: [1]
+
+- Periodic Updation of KYC 6.1 Regulated Entities shall carry out periodic updation of KYC at least once in every two years for high risk customers, once in every eight years for medium risk customers and once in every ten years for low risk customers from the date of opening of the account or the last KYC updation. [1]
+- Amendment to periodic updation of KYC 1.1 Regulated Entities shall carry out periodic updation of KYC at least once in every three years for high risk customers, once in every ten years for medium risk customers and once in every twelve years for low risk customers, from the date of opening of the account or the date of the last KYC updation, whichever is later. [2]
+- In supersession of paragraph 6 of Master Direction DBR.AML.BC.No.81/14.01.001/2015-16 relating to periodic updation of KYC, and with a view to easing the compliance burden on customers while preserving the integrity of the customer due diligence framework, the following amendments are issued. [4]
+- 1.3 Banks shall provide an advance intimation to the customer at least three months before the periodic updation falls due, followed by at least three reminders, of which at least one shall be by letter. [2]
+- 6.4 Accounts shall not be closed and no restriction on operation of the account shall be imposed solely because the periodic updation of KYC is pending, unless there is sufficient reason to believe that continuation of the relationship poses a risk. [1]
+
+This is informational only, not legal or financial advice.
+
+faithfulness=0.83  notices=['Superseded text was included at your request (audit mode): RBI/DBR/2015-16/18', 'Sources span multiple publication dates (2016-02-25 to 2026-09-18); the later document prevails where they differ.']

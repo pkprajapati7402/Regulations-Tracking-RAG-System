@@ -1,0 +1,45 @@
+RBI/2015-16/418
+DBS.CO/CSITE/BC.11/33.01.001/2015-16
+
+Cyber Security Framework in Banks
+
+02 June 2016
+
+To
+The Chairman / Managing Director / Chief Executive Officer of All Scheduled Commercial Banks (excluding Regional Rural Banks)
+
+Madam/Dear Sir,
+
+The use of information technology by banks and their constituents has grown rapidly and is now an integral part of the operational strategies of banks. It is essential to enhance the resilience of the banking system by improving the current defences in addressing cyber risks.
+
+1. Board approved cyber security policy
+1.1 Banks shall immediately put in place a cyber security policy elucidating the strategy containing an appropriate approach to combat cyber threats, duly approved by their Board.
+1.2 The cyber security policy shall be distinct and separate from the broader IT policy or IS security policy of the bank, so that it highlights the risks from cyber threats and the measures to address or mitigate these risks.
+
+2. Cyber crisis management plan
+2.1 A Cyber Crisis Management Plan shall be immediately evolved as part of the overall Board approved strategy, addressing the four aspects of detection, response, recovery and containment.
+2.2 Banks shall take effective measures to prevent cyber attacks and to promptly detect any cyber intrusions so as to respond, recover and contain the fallout.
+
+3. Baseline cyber security and resilience requirements
+3.1 Banks shall maintain an up-to-date inventory of business IT assets, with a documented classification of the criticality and business value of each asset.
+3.2 Banks shall implement network level and application level controls, including preventing unauthorised access to networks and databases, network segmentation, secure configuration of all devices, anti-malware controls and patch management with a documented risk-based timeline.
+3.3 Banks shall implement centralised authentication and authorisation, and shall disable or remove default and generic administrative accounts.
+3.4 Banks shall maintain and monitor audit logs of all critical systems and shall ensure that logs are protected from tampering.
+
+4. Reporting of cyber incidents
+4.1 Banks shall report all unusual cyber security incidents, whether they were successful or were mere attempts, to the Reserve Bank within two to six hours of detection.
+4.2 Banks shall also report cyber incidents to CERT-In as per the applicable directions issued by the Indian Computer Emergency Response Team.
+4.3 Banks shall proactively initiate the process of setting up a Security Operations Centre, which shall be operational on a twenty-four by seven basis for continuous surveillance and monitoring.
+
+5. Organisational arrangements
+5.1 Banks shall designate a senior executive as the Chief Information Security Officer, who shall be responsible for articulating and enforcing the policies that banks use to protect their information assets.
+5.2 The Chief Information Security Officer shall not have any direct reporting relationship with the Chief Information Officer, and shall not be given any business target.
+5.3 The IT Strategy Committee of the Board shall review the cyber security arrangements of the bank at least on a quarterly basis.
+
+6. Supervisory reporting and gap assessment
+6.1 Banks shall carry out a gap assessment against the baseline requirements annually and place the findings before the IT Strategy Committee of the Board.
+6.2 Banks shall submit a quarterly statement on cyber security preparedness to the Department of Banking Supervision.
+
+Yours faithfully,
+Chief General Manager-in-Charge
+Department of Banking Supervision

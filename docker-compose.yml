@@ -1,0 +1,32 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Swap to Postgres + pgvector by pointing at the db service below:
+      # DATABASE_URL: postgresql+psycopg://regrag:regrag@db:5432/regrag
+      DATABASE_URL: sqlite:////app/data/regrag.db
+      EMBEDDING_PROVIDER: ${EMBEDDING_PROVIDER:-hashing}
+      RERANKER_PROVIDER: ${RERANKER_PROVIDER:-lexical}
+      LLM_PROVIDER: ${LLM_PROVIDER:-extractive}
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+    volumes:
+      - ./data:/app/data
+      - ./corpus:/app/corpus
+
+  db:
+    image: pgvector/pgvector:pg16
+    profiles: ["postgres"]
+    environment:
+      POSTGRES_USER: regrag
+      POSTGRES_PASSWORD: regrag
+      POSTGRES_DB: regrag
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

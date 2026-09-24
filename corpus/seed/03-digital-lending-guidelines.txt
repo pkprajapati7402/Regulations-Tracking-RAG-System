@@ -1,0 +1,45 @@
+RBI/2022-23/111
+DOR.CRE.REC.66/21.07.001/2022-23
+
+Guidelines on Digital Lending
+
+02 September 2022
+
+To
+All Commercial Banks, Primary (Urban) Co-operative Banks, State Co-operative Banks, District Central Co-operative Banks and Non-Banking Financial Companies (including Housing Finance Companies)
+
+Madam/Dear Sir,
+
+A Working Group on 'digital lending including lending through online platforms and mobile apps' was constituted by the Reserve Bank. Based on the recommendations of the Working Group, the following guidelines are issued.
+
+1. Scope and applicability
+1.1 These guidelines are applicable to digital lending undertaken by Regulated Entities, whether directly or through a Lending Service Provider (LSP) engaged by the RE.
+1.2 "Digital Lending" means a remote and automated lending process, largely by use of seamless digital technologies for customer acquisition, credit assessment, loan approval, disbursement, recovery and associated customer service.
+
+2. Customer protection and conduct requirements
+2.1 All loan disbursals and repayments shall be executed only between the bank accounts of the borrower and the Regulated Entity, without any pass-through or pool account of the Lending Service Provider or any third party.
+2.2 Any fees or charges payable to Lending Service Providers in the credit intermediation process shall be paid directly by the Regulated Entity and shall not be charged by the LSP to the borrower directly.
+2.3 A standardised Key Fact Statement shall be provided to the borrower before the execution of the contract.
+2.4 The all-inclusive cost of digital loans in the form of Annual Percentage Rate shall be disclosed to the borrower upfront and shall also form part of the Key Fact Statement.
+2.5 Automatic increase in credit limit without the explicit consent of the borrower is prohibited.
+
+3. Cooling-off / look-up period
+3.1 Regulated Entities shall provide a cooling-off or look-up period during which the borrower can exit the digital loan by paying the principal and the proportionate Annual Percentage Rate without any penalty.
+3.2 The cooling-off period shall be determined by the Board of the Regulated Entity and shall not be less than three days for loans having a tenor of seven days or more, and one day for loans having a tenor of less than seven days.
+
+4. Grievance redressal
+4.1 Regulated Entities and the Lending Service Providers engaged by them shall have a suitable nodal grievance redressal officer to deal with digital lending related complaints, and the details of such officer shall be prominently displayed on the website of the RE, the LSP and on the Digital Lending App.
+4.2 If any complaint lodged by the borrower is not resolved by the Regulated Entity within a period of thirty days, the borrower may lodge a complaint over the Complaint Management System portal under the Reserve Bank - Integrated Ombudsman Scheme.
+
+5. Data collection and privacy
+5.1 Data collected by Digital Lending Apps shall be need-based and with the prior and explicit consent of the borrower, having a clear audit trail.
+5.2 Regulated Entities shall ensure that Digital Lending Apps do not access mobile phone resources such as the file and media, contact list, call logs and telephony functions. A one-time access for the camera, microphone, location or any other facility may be taken with the explicit consent of the borrower for the purpose of onboarding or Know Your Customer requirements only.
+5.3 The borrower shall be provided with an option to give or deny consent for the use of specific data, to restrict disclosure to third parties, to revoke previously granted consent and to delete the data collected from the borrower by the Digital Lending App or the LSP.
+
+6. Reporting to Credit Information Companies
+6.1 Any lending sourced through Digital Lending Apps, irrespective of its nature or tenor, shall be reported to Credit Information Companies by the Regulated Entities.
+6.2 All new digital lending products extended over merchant platforms involving short-term credit or deferred payments shall be reported to Credit Information Companies by the Regulated Entities.
+
+Yours faithfully,
+Chief General Manager
+Department of Regulation

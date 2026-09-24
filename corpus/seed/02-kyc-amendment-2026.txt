@@ -1,0 +1,44 @@
+RBI/2026-27/88
+DOR.AML.REC.42/14.01.001/2026-27
+
+Reserve Bank of India (Commercial Banks - Know Your Customer) Amendment Directions, 2026
+
+18 September 2026
+
+To
+All Commercial Banks (including Regional Rural Banks, Local Area Banks, Small Finance Banks and Payments Banks)
+
+Madam/Dear Sir,
+
+Please refer to the Master Direction DBR.AML.BC.No.81/14.01.001/2015-16 dated 25 February 2016 on Know Your Customer. In supersession of paragraph 6 of Master Direction DBR.AML.BC.No.81/14.01.001/2015-16 relating to periodic updation of KYC, and with a view to easing the compliance burden on customers while preserving the integrity of the customer due diligence framework, the following amendments are issued.
+
+1. Amendment to periodic updation of KYC
+1.1 Regulated Entities shall carry out periodic updation of KYC at least once in every three years for high risk customers, once in every ten years for medium risk customers and once in every twelve years for low risk customers, from the date of opening of the account or the date of the last KYC updation, whichever is later. This replaces the earlier periodicity of two years, eight years and ten years respectively.
+1.2 Where there is no change in the KYC information, the customer may submit a self-declaration through any digital channel offered by the bank, including the bank's mobile application, internet banking, business correspondent, video customer identification process, ATM, registered email or registered mobile number. Banks shall also accept such self-declaration submitted through a Business Correspondent at the customer's doorstep.
+1.3 Banks shall provide an advance intimation to the customer at least three months before the periodic updation falls due, followed by at least three reminders, of which at least one shall be by letter.
+
+2. Restriction on account operation
+2.1 No bank shall impose any restriction on the operation of an account, including debit freeze, solely on the ground that the periodic updation of KYC is pending, until the expiry of twelve months from the due date of periodic updation or until 30 June 2027, whichever is later.
+2.2 Where a restriction has already been imposed solely on the ground of pending periodic updation, the bank shall lift the restriction within seven working days of the customer completing the updation.
+
+3. Small accounts
+3.1 The aggregate credit limit in a financial year for a small account is revised from rupees one lakh to rupees two lakh, the monthly aggregate withdrawal and transfer limit is revised from rupees ten thousand to rupees twenty thousand, and the maximum balance at any point of time is revised from rupees fifty thousand to rupees one lakh.
+
+4. Business Correspondent enabled updation
+
+[TABLE]
+Channel | Eligible for no-change self-declaration | Eligible for change of address
+Bank branch | Yes | Yes
+Business Correspondent | Yes | Yes
+Internet or mobile banking | Yes | Yes
+ATM | Yes | No
+Registered email or mobile | Yes | No
+Video-based Customer Identification Process | Yes | Yes
+[/TABLE]
+
+5. Effective date
+5.1 These Directions shall come into force with effect from 1 January 2027. Paragraph 6 of the Master Direction DBR.AML.BC.No.81/14.01.001/2015-16 stands superseded to the extent of the provisions of these Directions. All other provisions of the Master Direction, including record retention under paragraph 9 and reporting under paragraph 10, remain unchanged.
+
+Yours faithfully,
+Chief General Manager
+Department of Regulation

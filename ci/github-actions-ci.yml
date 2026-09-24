@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Test suite
+        run: python -m pytest -q
+      - name: Build index from the seed corpus
+        run: python -m ingestion.reindex --reset --seed
+      - name: Evaluation (retrieval track)
+        run: python -m evaluation.run_eval --experiment retrieval --k 5
+      - name: Amendment case study
+        run: python scripts/case_study_amendment.py

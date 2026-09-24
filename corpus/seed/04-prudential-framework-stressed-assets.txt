@@ -1,0 +1,51 @@
+RBI/2018-19/203
+DBR.No.BP.BC.45/21.04.048/2018-19
+
+Prudential Framework for Resolution of Stressed Assets
+
+07 June 2019
+
+To
+All Scheduled Commercial Banks (excluding Regional Rural Banks), All India Term Financial Institutions, Small Finance Banks and Systemically Important Non-Deposit taking Non-Banking Financial Companies and Deposit taking Non-Banking Financial Companies
+
+Madam/Dear Sir,
+
+In exercise of the powers conferred by the Banking Regulation Act, 1949 and the Reserve Bank of India Act, 1934, the Reserve Bank issues the following framework for the resolution of stressed assets, in supersession of the earlier resolution schemes.
+
+1. Early identification and reporting of stress
+1.1 Lenders shall recognise incipient stress in loan accounts immediately on default by classifying such assets as Special Mention Accounts as per the following categories.
+
+[TABLE]
+SMA Sub-category | Basis for classification - principal or interest payment or any other amount wholly or partly overdue
+SMA-0 | Up to 30 days
+SMA-1 | More than 30 days and up to 60 days
+SMA-2 | More than 60 days and up to 90 days
+[/TABLE]
+
+1.2 In the case of revolving credit facilities such as cash credit or overdraft, the SMA sub-classification shall be based on the number of days the account remains out of order: SMA-1 for more than 30 days and up to 60 days and SMA-2 for more than 60 days and up to 90 days.
+1.3 Lenders shall report credit information, including classification of an account as SMA, to the Central Repository of Information on Large Credits on all borrower entities having aggregate exposure of rupees five crore and above, on a weekly basis at the close of business on every Friday.
+
+2. Implementation of Resolution Plan
+2.1 All lenders shall put in place Board-approved policies for resolution of stressed assets, including the timelines for resolution.
+2.2 Upon a default by a borrower entity with aggregate exposure of rupees two thousand crore and above, all lenders shall undertake a prima facie review of the borrower account within thirty days from such default. This period is referred to as the Review Period.
+2.3 During the Review Period, the lenders may decide on the resolution strategy, including the nature of the Resolution Plan and the approach for its implementation. The lenders shall enter into an Inter-Creditor Agreement during the Review Period to provide for the ground rules for finalisation and implementation of the Resolution Plan.
+2.4 Any Resolution Plan shall be deemed to be implemented only if it is approved by lenders representing seventy five per cent by value of the total outstanding credit facilities and by sixty per cent of lenders by number.
+
+3. Timelines and additional provisioning
+3.1 Where a Resolution Plan is to be implemented, it shall be implemented within one hundred and eighty days from the end of the Review Period.
+3.2 If a Resolution Plan is not implemented within the specified timeline, lenders shall make additional provisions as set out below.
+
+[TABLE]
+Timeline for implementation of Resolution Plan | Additional provision as a percentage of total outstanding
+180 days from the end of the Review Period | 20 per cent
+365 days from the commencement of the Review Period | 35 per cent (including the earlier 20 per cent)
+[/TABLE]
+
+3.3 The additional provisions may be reversed where the Resolution Plan involves only payment of overdues by the borrower entity, upon the borrower entity not being in default for a period of six months from the date of clearing of the overdues.
+
+4. Delayed implementation and reference under the Insolvency and Bankruptcy Code
+4.1 The additional provisions shall be reversed if a resolution is pursued under the Insolvency and Bankruptcy Code, 2016 - one half on filing of the insolvency application and the remaining on admission of the borrower entity into the insolvency resolution process.
+
+Yours faithfully,
+Chief General Manager-in-Charge
+Department of Banking Regulation

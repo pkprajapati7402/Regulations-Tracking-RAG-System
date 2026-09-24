@@ -1,0 +1,48 @@
+RBI/2022-23/92
+DoR.AUT.REC.No.27/24.01.041/2022-23
+
+Master Direction - Credit Card and Debit Card - Issuance and Conduct Directions, 2022
+
+21 April 2022
+(Updated as on 07 March 2024)
+
+To
+All Scheduled Banks (excluding Payments Banks, State Co-operative Banks and District Central Co-operative Banks) and All Non-Banking Financial Companies
+
+Madam/Dear Sir,
+
+In exercise of the powers conferred by the Banking Regulation Act, 1949 and the Reserve Bank of India Act, 1934, the Reserve Bank issues these Directions on the issuance and conduct of credit cards and debit cards.
+
+CHAPTER II - CONDUCT OF CREDIT CARD BUSINESS
+
+5. Issue of cards
+5.1 Card-issuers shall not issue unsolicited cards. In case an unsolicited card is issued and activated without the explicit consent of the recipient and the recipient is billed for the same, the card-issuer shall not only reverse the charges forthwith but also pay a penalty without demur to the recipient amounting to twice the value of the charges reversed.
+5.2 Card-issuers shall seek One Time Password based consent from the cardholder for activating a credit card if it has not been activated by the customer for more than thirty days from the date of issuance.
+5.3 If no consent is received for activating the card, card-issuers shall close the credit card account without any cost to the customer within seven working days from the date of seeking confirmation from the customer.
+
+6. Credit limit
+6.1 The card limit shall not be breached without seeking explicit consent from the cardholder.
+6.2 Card-issuers shall ensure that the credit limit as sanctioned and advised to the cardholder is not exceeded at any point in time without seeking the explicit consent of the cardholder.
+
+7. Billing
+7.1 Card-issuers shall ensure that there is no delay in dispatching or emailing the bill, and the cardholder is given at least fifteen days for making payment before the levy of interest or charges.
+7.2 No card-issuer shall report any credit information relating to a new credit card account to Credit Information Companies prior to activation of the card.
+7.3 In case of any complaint about a wrong credit information having been reported, the card-issuer shall provide the cardholder with the reasons for the reporting and shall withdraw the information within thirty days.
+7.4 Card-issuers shall provide a one-time option to the cardholder to modify the billing cycle of the credit card as per the cardholder's convenience.
+
+8. Interest rates and other charges
+8.1 Card-issuers shall prescribe a ceiling rate of interest, including processing and other charges, in respect of credit cards and shall indicate the same in the Most Important Terms and Conditions.
+8.2 The terms and conditions for payment of interest, including the free credit period, shall be clearly specified to enable the cardholder to make an informed decision.
+8.3 There shall be no capitalisation of unpaid charges, levied fees or taxes for charging or compounding of interest.
+
+9. Closure of credit card
+9.1 Any request for closure of a credit card shall be honoured within seven working days by the credit card issuer, subject to payment of all dues by the cardholder.
+9.2 Failure on the part of the card-issuer to complete the process of closure within seven working days shall result in a penalty of rupees five hundred per day of delay payable to the customer, till the closure of the account, provided there is no outstanding in the account.
+9.3 If a credit card has not been used for a period of more than one year, the process to close the card shall be initiated after intimating the cardholder, and if no reply is received within thirty days the card account shall be closed by the card-issuer.
+
+10. Insurance cover
+10.1 Where a card-issuer offers an insurance cover to the cardholder in tie-up with an insurance company, the card-issuer shall obtain the explicit consent in writing or in digital mode from the cardholder along with the nomination details.
+
+Yours faithfully,
+Chief General Manager
+Department of Regulation

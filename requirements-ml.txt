@@ -1,0 +1,4 @@
+# Optional heavy extras. Install only if you want real neural embeddings/reranking.
+#   pip install -r requirements-ml.txt
+sentence-transformers>=3.0
+torch>=2.2

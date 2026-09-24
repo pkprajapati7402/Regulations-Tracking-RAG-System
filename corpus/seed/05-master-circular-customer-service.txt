@@ -1,0 +1,55 @@
+RBI/2023-24/12
+DOR.SOG(LEG).REC/5/09.07.005/2023-24
+
+Master Circular on Customer Service in Banks
+
+01 April 2023
+
+To
+All Scheduled Commercial Banks (excluding Regional Rural Banks)
+
+Madam/Dear Sir,
+
+Please refer to the Master Circular on Customer Service in Banks dated 01 April 2022. This Master Circular consolidates the instructions issued up to 31 March 2023 and supersedes the earlier Master Circular.
+
+1. Customer service policy
+1.1 Banks shall have a Board-approved Comprehensive Deposit Policy, a Cheque Collection Policy, a Customer Compensation Policy and a Customer Grievance Redressal Policy, which shall be reviewed at least once a year.
+1.2 Banks shall display the name and contact details of the Principal Nodal Officer, the Internal Ombudsman and the RBI Ombudsman prominently in all branches and on their websites.
+
+2. Banking hours and basic services
+2.1 Banks shall provide the following basic banking services at all branches during banking hours: acceptance of cash over the counter (except at specialised branches), issue and encashment of drafts and pay orders, issue and updation of passbooks, acceptance of clearing and standing instructions, and receipt of Form 15G and 15H.
+2.2 Banks shall not refuse to accept small denomination notes and coins tendered at their counters.
+
+3. Savings bank accounts and passbooks
+3.1 Banks shall issue passbooks to all individual customers maintaining savings bank accounts, and shall not levy any charge for the issue of the original passbook.
+3.2 Where a bank offers a statement of account in lieu of a passbook, it shall be issued at monthly intervals free of cost.
+3.3 Entries in the passbook or statement shall be legible and shall carry an intelligible particulars of the transaction, not merely a code.
+
+4. Basic Savings Bank Deposit Account
+4.1 The Basic Savings Bank Deposit Account shall be considered a normal banking service available to all and shall not require any minimum balance.
+4.2 The following services shall be available free of charge in a Basic Savings Bank Deposit Account: deposit of cash at branches and ATMs, receipt or credit of money through electronic payment channels, a minimum of four withdrawals in a month including through ATMs, and an ATM card or ATM-cum-Debit card.
+
+5. Compensation for delayed credit and failed transactions
+5.1 Where a customer's account is debited in a failed transaction and the amount is not reversed within the prescribed timeline, the bank shall pay compensation to the customer.
+
+[TABLE]
+Type of transaction | Timeline for auto-reversal | Compensation payable if delayed
+ATM cash withdrawal - account debited but cash not dispensed | Within T+5 days | Rs 100 per day of delay beyond T+5 days
+Card transaction at a point of sale - account debited but confirmation not received | Within T+5 days | Rs 100 per day of delay beyond T+5 days
+IMPS or UPI - account debited but beneficiary not credited | Within T+1 day | Rs 100 per day of delay beyond T+1 day
+NEFT - delay in credit to the beneficiary account | Same day | Interest at the current RBI LAF Repo Rate plus two per cent
+[/TABLE]
+
+5.2 The compensation shall be credited to the customer's account suo motu, without any claim being made by the customer.
+
+6. Nomination facility
+6.1 Banks shall obtain a nomination for all deposit accounts, safe custody articles and safe deposit lockers, and shall acknowledge the receipt of the nomination in writing.
+6.2 Banks shall indicate the fact that nomination is registered along with the name of the nominee, where the customer has consented, on the passbook and statement of account.
+
+7. Settlement of claims of deceased depositors
+7.1 Banks shall settle the claims in respect of deceased depositors and release payment to the survivor or nominee within a period not exceeding fifteen days from the date of receipt of the claim, subject to the production of proof of death of the depositor and suitable identification of the claimant.
+7.2 In the case of accounts without a survivor or nominee clause, banks shall have a Board-approved policy for the settlement of claims and shall not insist on a succession certificate for claims up to the threshold fixed by the Board.
+
+Yours faithfully,
+Chief General Manager
+Department of Regulation
